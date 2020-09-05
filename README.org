@@ -1,0 +1,90 @@
+* wits 'n wagers
+* overview
+
+  [[http://www.gnu.org/software/emacs/][emacs]] is a text editor.  an extensible one.  it is mainly used for
+  coding, but it can also do anything else.  wits 'n wagers is a [[https://www.northstargames.com/products/wits-wagers-deluxe-edition][board
+  game]].
+
+  wnw.el can help you host a game of wits 'n wagers over a conference
+  call (zoom/chime/meet).  wnw.el just helps to keep track of the
+  board, but the original game is required for the questions.  wnw.el
+  is built on top of [[https://orgmode.org/][org-mode]].
+
+  here is a screenshot:
+  [[https://ianxm-githubfiles.s3.amazonaws.com/wnw.el/wnw.png]]
+
+* installation
+
+** manual install
+
+  1. download [[https://raw.github.com/ianxm/wnw.el/master/wnw.el][wnw.el]]
+  2. run @@html:<kbd>@@M-x@@html:</kbd>@@ ~package-install-file~ @@html:<kbd>@@RET@@html:</kbd>@@
+  3. choose ~wnw.el~
+
+* setup
+follow these steps to get started with a new game:
+
+1. copy examplegame.org to a new file.
+2. open examplegame.org in emacs.
+3. @@html:<kbd>@@M-x@@html:</kbd>@@ ~wnw-mode~ @@html:<kbd>@@RET@@html:</kbd>@@
+   to enable ~wnw-mode~ in the buffer.
+4. enter player names in the ~players~ heading. add or remove as necessary.
+5. @@html:<kbd>@@M-x@@html:</kbd>@@ ~wnw-init~ @@html:<kbd>@@RET@@html:</kbd>@@
+   to set up the gameboard.
+
+* gameplay
+
+the actual game instructions are [[https://cdn.shopify.com/s/files/1/0283/4324/files/WWDx_Rules_Website.pdf?5252292417795165080][here]].
+
+this section describes how to host the game using wnw.el.  the game is
+played in seven rounds.  each round goes as follows:
+
+1. read the question.
+2. use @@html:<kbd>@@C-c t@@html:</kbd>@@ to set the timer.
+3. enter guesses
+   1. @@html:<kbd>@@C-c g@@html:</kbd>@@.
+   2. enter guesser's name.
+   3. enter guess.
+4. when all guesses have been entered, enter bets
+   1. @@html:<kbd>@@C-c b@@html:</kbd>@@.
+   2. enter bettor's name.
+   3. enter guess on which bet is being made.
+   4. enter chips to bet
+5. when all bets have been entered, enter the correct answer
+   1. @@html:<kbd>@@C-c a@@html:</kbd>@@
+   2. enter the correct answer
+6. then use @@html:<kbd>@@C-c n@@html:</kbd>@@ to clear the board for
+   the next round.
+
+to change a player's guess use @@html:<kbd>@@C-u C-c g@@html:</kbd>@@
+and enter the player's name.
+
+** gameboard
+
+the gameboard is made up of two tables.  the first table lists the
+players and information about each player's chips and bets.
+
+- player :: player's name
+- chips held :: the number of chips a player has that aren't on the board
+- bets :: the number of bets the player has made (max of 2)
+- chips in play :: the number of chips a player has allocated to current bets
+
+the second table is equivalent to the green felt that comes with the
+game. it lists the guesses and bets for the current round.
+
+- guesser :: the names of the players that made this row's guess.
+- guess :: the number that is the guess.
+- bets :: the bets for this rows guess. bets are formatted as "name:chips".
+- pays :: these are the rate at which the bets pay off.
+
+** modeline
+
+~wnw-mode~ sets adds something like ~qgbAn~ to the modeline. these are
+the steps to follow in each round, with the current step
+capitalized. the steps are:
+
+1. question
+2. guess
+3. bet
+4. answer
+5. next

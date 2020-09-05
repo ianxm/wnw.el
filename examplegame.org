@@ -1,0 +1,46 @@
+* info
+- [[https://cdn.shopify.com/s/files/1/0283/4324/files/WWDx_Rules_Website.pdf?5252292417795165080][game instructions]]
+* players
+** ian
+:PROPERTIES:
+:chips:    2
+:face:     wnw-player1
+:END:
+** karen
+:PROPERTIES:
+:chips:    2
+:face:     wnw-player2
+:END:
+** noble
+:PROPERTIES:
+:chips:    2
+:face:     wnw-player3
+:END:
+** avo
+:PROPERTIES:
+:chips:    2
+:face:     wnw-player4
+:END:
+** gigi
+:PROPERTIES:
+:chips:    2
+:face:     wnw-player5
+:END:
+* gameboard
+
+|        | chips |      |   chips |
+| player |  held | bets | in play |
+|--------+-------+------+---------|
+| ian    |     2 |    0 |       0 |
+| karen  |     2 |    0 |       0 |
+| noble  |     2 |    0 |       0 |
+| avo    |     2 |    0 |       0 |
+| gigi   |     2 |    0 |       0 |
+
+| guesser | guess   | bets | pays   |
+|---------+---------+------+--------|
+|         | smaller |      | 6 to 1 |
+|---------+---------+------+--------|
+
+* gamelog
+[09:18] -- round 1 --
